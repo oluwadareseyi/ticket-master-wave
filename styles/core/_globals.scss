@@ -12,12 +12,24 @@ body {
 
 .container {
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
   padding-left: 20px;
   padding-right: 20px;
 }
 
 #__layout {
-  min-height: 100vh;
+  width: 100%;
+  > div {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    align-self: center;
+  }
+
+  footer {
+    margin-top: auto;
+  }
 }
