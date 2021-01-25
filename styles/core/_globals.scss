@@ -1,11 +1,4 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
-  margin: 0;
-  padding: 0;
-
   &.no-scroll {
     position: fixed;
     top: 0;
@@ -14,35 +7,8 @@ body {
   }
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.15;
-  margin: 0;
-}
-
-button,
-input {
-  overflow: visible;
-}
-
-button,
-select {
-  text-transform: none;
-}
-
-button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-  -webkit-appearance: button;
+.container {
+  max-width: 1200px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
