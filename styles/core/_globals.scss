@@ -1,5 +1,7 @@
 body {
   font-family: "SFPro", sans-serif;
+  min-height: 100vh;
+  background: $col-gray-light;
   &.no-scroll {
     position: fixed;
     top: 0;
@@ -10,6 +12,12 @@ body {
 
 .container {
   max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+#__layout {
+  min-height: 100vh;
 }
