@@ -4,7 +4,11 @@
 @import "core/globals";
 
 @import "mixins/breakpoints";
+@import "mixins/flexbox";
 
 @import "components/modal";
+@import "components/nav";
+@import "components/footer";
+@import "components/form";
 
 @import "layout/home";

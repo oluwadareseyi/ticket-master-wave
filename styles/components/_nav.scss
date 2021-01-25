@@ -1,0 +1,28 @@
+.c-nav {
+  padding: 20px 60px;
+  @include flex(space-between, center);
+
+  &__links {
+    @include flex($align: center);
+
+    a {
+      color: $col-gray-dark;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+    }
+
+    .c-button {
+      padding: 10px 24px;
+      margin-left: 30px;
+
+      @include media("<=tablet") {
+        display: none;
+      }
+    }
+  }
+
+  @include media("<=600px") {
+    padding: 20px;
+  }
+}
