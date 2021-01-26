@@ -99,7 +99,9 @@
 
       &__address {
         color: $col-gray-dark;
-        max-width: 350px;
+        max-width: 349px;
+        font-weight: 500;
+        font-size: 25px;
         line-height: 1.35;
       }
 
@@ -137,6 +139,7 @@
 
       &__time {
         color: $col-gray-dark;
+        font-weight: 500;
       }
 
       .c-social {
