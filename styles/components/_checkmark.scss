@@ -1,0 +1,13 @@
+.c-checkmark {
+  @keyframes draw-path {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  path {
+    stroke-dasharray: var(--path-length);
+    stroke-dashoffset: var(--path-length);
+    animation: draw-path 1s ease forwards;
+  }
+}
