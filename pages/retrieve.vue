@@ -19,10 +19,10 @@
       </form>
       <div v-else class="c-retrieve__success">
         <check-icon />
-        <div class="c-success__message">
+        <p class="c-success__message">
           Your tickets have been confirmed and sent to your email address at
           <span>ted@flutterwave.com</span>
-        </div>
+        </p>
         <nuxt-link to="/">
           <button type="button" class="c-button c-button--yellow">
             Buy more tickets
