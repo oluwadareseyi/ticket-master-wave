@@ -52,7 +52,7 @@
         </div>
       </div>
     </div>
-    <div class="c-eventinfo__lines"></div>
+    <div class="c-lines"></div>
   </div>
 </template>
 
