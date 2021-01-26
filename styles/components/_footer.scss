@@ -1,12 +1,12 @@
 .c-footer {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  background: $col-gray-light;
+  padding: 30px 20px;
   width: 100%;
   color: $col-gray-md;
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.02em;
+  margin-left: auto;
+  margin-right: auto;
 
   &__inner {
     @include flex(space-between, center);
