@@ -61,16 +61,8 @@
 
     <div class="c-lines"></div>
 
-    <div v-if="isModal" class="c-backdrop" @click="closeModal"></div>
     <transition name="fade">
-      <modal v-if="isModal">
-        <button class="c-close" @click="closeModal">
-          <img
-            src="data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.5 4.5L4.5 13.5' stroke='%23333333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M4.5 4.5L13.5 13.5' stroke='%23333333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A"
-            alt="close modal"
-          />
-        </button>
-
+      <modal v-if="isModal" @clicked="closeModal">
         <div v-if="!isSuccess" class="c-modal__register">
           <h3>Register for free</h3>
           <hr />
@@ -106,12 +98,7 @@
             </button>
           </form>
         </div>
-        <div v-else class="c-modal__success">
-          <check-icon />
-          <p class="c-success__message">
-            You have successfully registered for the nathan cole experience.
-          </p>
-        </div>
+        <completed v-else />
       </modal>
     </transition>
   </div>
@@ -122,9 +109,10 @@ import CheckIcon from "~/components/CheckIcon.vue";
 import Modal from "~/components/Modal.vue";
 import { mapState } from "vuex";
 import { formatWithDay, formatDate } from "~/utils";
+import Completed from "~/components/completed.vue";
 
 export default {
-  components: { Modal, CheckIcon },
+  components: { Modal, CheckIcon, Completed },
   data() {
     return {
       id: this.$route.params.id,
