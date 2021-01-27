@@ -4,7 +4,11 @@
       Enter your email and we’ll send your tickets right away!
     </h2>
     <div>
-      <form v-if="!success" class="c-retrieve__request" @submit.prevent>
+      <form
+        v-if="!success"
+        class="c-retrieve__request"
+        @submit.prevent="success = true"
+      >
         <label for="email" class="c-form__label">Email address</label>
         <input
           type="email"
@@ -12,6 +16,7 @@
           id="email"
           class="c-form__input"
           required
+          v-model="email"
         />
         <button type="submit" class="c-button c-button--yellow">
           CONFIRM AND SEND TICKET
@@ -21,7 +26,7 @@
         <check-icon />
         <p class="c-success__message">
           Your tickets have been confirmed and sent to your email address at
-          <span>ted@flutterwave.com</span>
+          <span>{{ email }}</span>
         </p>
         <nuxt-link to="/">
           <button type="button" class="c-button c-button--yellow">
@@ -40,6 +45,7 @@ export default {
   components: { CheckIcon },
   data() {
     return {
+      email: "",
       success: false
     };
   }
