@@ -28,12 +28,33 @@
       }
       &__image {
         margin-bottom: 10px;
-        min-height: 200px;
+        height: 220px;
         img {
           width: 100%;
+          height: 100%;
+          border-radius: 3px;
           object-fit: cover;
           transition: transform 0.3s;
           will-change: transform;
+        }
+
+        &:empty {
+          background: darken($col-gray-light, 10%);
+          color: $col-gray-dark;
+          border-radius: 3px;
+          position: relative;
+
+          &::after {
+            position: absolute;
+            content: "No Image Preview";
+            color: $col-gray-dark;
+            top: 50%;
+            font-size: 24px;
+            font-weight: 500;
+            text-align: center;
+            transform: translateY(-50%);
+            width: 100%;
+          }
         }
       }
 
@@ -48,6 +69,18 @@
         color: $col-gray-md;
         text-transform: uppercase;
         font-size: 15px;
+      }
+
+      &__free {
+        font-size: 14px;
+        color: $col-green;
+        font-weight: 500;
+      }
+
+      &__sold-out {
+        font-size: 14px;
+        color: $col-red;
+        font-weight: 500;
       }
 
       &__date {
