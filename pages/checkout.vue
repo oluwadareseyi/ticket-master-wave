@@ -190,7 +190,7 @@ export default {
           name: info.name
         },
         callback: () => {
-          localStorage.setItem("cartOrders", JSON.stringify([]));
+          localStorage.setItem("cartOrders", JSON.stringify(defaultCart()));
           localStorage.setItem("cart", JSON.stringify({}));
         },
         customizations: {
