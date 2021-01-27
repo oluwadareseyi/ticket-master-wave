@@ -79,6 +79,7 @@
         <component
           @summary="toSummary"
           @payment="toPayment"
+          @makePayment="makePayment"
           :cartOrders="cartOrders"
           :subtotal="subTotal"
           :tax="getTax"
@@ -127,6 +128,13 @@ export default {
     this.cart = JSON.parse(localStorage.getItem("cart")) || {};
     this.cartOrders =
       JSON.parse(localStorage.getItem("cartOrders")) || defaultCart();
+
+    const isDevelopment = process.env.NODE_ENV === "development";
+    const script = document.createElement("script");
+    script.src = isDevelopment
+      ? "https://ravemodal-dev.herokuapp.com/v3.js"
+      : "https://checkout.flutterwave.com/v3.js";
+    document.getElementsByTagName("head")[0].appendChild(script);
   },
   watch: {
     cartOrders(newValue, oldValue) {
@@ -134,6 +142,7 @@ export default {
     }
   },
   methods: {
+    formatDate,
     toSummary() {
       this.sidebarComponent = "summary";
     },
@@ -167,7 +176,29 @@ export default {
       });
       this.cartOrders = updatedOrders;
     },
-    formatDate
+    makePayment(info) {
+      window.FlutterwaveCheckout({
+        public_key: "FLWPUBK_TEST-a9e1991d923bb0564ee8b113176f32d1-X",
+        tx_ref: new Date().getTime(),
+        amount: this.getTotal,
+        currency: "NGN",
+        country: "NG",
+        payment_options: "card",
+        customer: {
+          email: info.email,
+          phone_number: info.phone,
+          name: info.name
+        },
+        callback: () => {
+          localStorage.setItem("cartOrders", JSON.stringify([]));
+          localStorage.setItem("cart", JSON.stringify({}));
+        },
+        customizations: {
+          title: "My store",
+          description: `Payment for ${this.cart.name}`
+        }
+      });
+    }
   }
 };
 </script>

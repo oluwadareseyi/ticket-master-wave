@@ -42,7 +42,11 @@
 
           <div class="c-total__cost">N{{ total.toLocaleString() }}</div>
         </div>
-        <button @click="$emit('payment')" class="c-button c-button--yellow">
+        <button
+          @click="$emit('payment')"
+          :disabled="total <= 0"
+          class="c-button c-button--yellow"
+        >
           Continue
         </button>
 
