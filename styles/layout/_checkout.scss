@@ -125,6 +125,10 @@
 
         &__summary {
           min-height: 200px;
+
+          .c-order {
+            margin-bottom: 20px;
+          }
         }
 
         &__calc {
@@ -217,6 +221,20 @@
           background-repeat: no-repeat;
         }
       }
+    }
+  }
+
+  &__empty {
+    @include flex(center, center);
+    flex-direction: column;
+    margin-top: 100px;
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    a {
+      text-decoration: underline;
     }
   }
 }

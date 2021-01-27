@@ -7,21 +7,14 @@
 
     <div class="c-orders">
       <div class="c-orders__summary">
-        <div class="c-order">
-          <div class="c-order__type">
-            2 - Regular
-          </div>
-          <div class="c-order__cost">
-            N10,000
-          </div>
-        </div>
-
-        <div class="c-order">
-          <div class="c-order__type">
-            2 - Regular
-          </div>
-          <div class="c-order__cost">
-            N10,000
+        <div v-for="cart in cartOrders" :key="cart.name">
+          <div class="c-order" v-if="cart.quantity > 0">
+            <div class="c-order__type">
+              {{ cart.quantity }} - {{ cart.name }}
+            </div>
+            <div class="c-order__cost">
+              N{{ (cart.quantity * cart.amount).toLocaleString() }}
+            </div>
           </div>
         </div>
       </div>
@@ -32,18 +25,14 @@
           <div class="c-calc__type">
             Sub-total
           </div>
-          <div class="c-calc__cost">
-            N110,000
-          </div>
+          <div class="c-calc__cost">N{{ subtotal.toLocaleString() }}</div>
         </div>
 
         <div class="c-calc">
           <div class="c-calc__type">
             VAT
           </div>
-          <div class="c-calc__cost">
-            N1,000
-          </div>
+          <div class="c-calc__cost">N{{ tax.toLocaleString() }}</div>
         </div>
 
         <div class="c-total">
@@ -51,11 +40,9 @@
             total payment
           </div>
 
-          <div class="c-total__cost">
-            N111,000
-          </div>
+          <div class="c-total__cost">N{{ total.toLocaleString() }}</div>
         </div>
-        <button class="c-button c-button--yellow">
+        <button @click="$emit('payment')" class="c-button c-button--yellow">
           Continue
         </button>
 
@@ -86,7 +73,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["cartOrders", "subtotal", "tax", "total"]
+};
 </script>
 
 <style lang="scss" scoped></style>
