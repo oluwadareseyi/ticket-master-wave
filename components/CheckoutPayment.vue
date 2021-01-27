@@ -1,6 +1,10 @@
 <template>
   <div class="c-payment">
-    <button type="button" class="c-payment__breadcrumb">
+    <button
+      @click="$emit('summary')"
+      type="button"
+      class="c-payment__breadcrumb"
+    >
       <span>
         Go Back
       </span>
@@ -32,12 +36,10 @@
           total payment
         </div>
 
-        <div class="c-total__cost">
-          N111,000
-        </div>
+        <div class="c-total__cost">N{{ total.toLocaleString() }}</div>
       </div>
       <button type="submit" class="c-button c-button--yellow">
-        Continue
+        pay N{{ total.toLocaleString() }}
       </button>
     </form>
 
@@ -66,7 +68,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["total"]
+};
 </script>
 
 <style lang="scss" scoped></style>

@@ -98,7 +98,7 @@
             </button>
           </form>
         </div>
-        <completed v-else />
+        <completed v-else :name="event.name" />
       </modal>
     </transition>
   </div>
@@ -128,7 +128,7 @@ export default {
     }
   },
   mounted() {
-    this.checked = JSON.parse(localStorage.getItem("cart")) || {};
+    this.cart = JSON.parse(localStorage.getItem("cart")) || {};
   },
   methods: {
     formatDate,
