@@ -11,11 +11,7 @@
         :key="event.id"
       >
         <div class="c-event__image">
-          <img
-            v-if="event.image"
-            :src="event.image"
-            alt="The Nathan Cole Experience"
-          />
+          <img v-if="event.image" :src="event.image" :alt="event.name" />
         </div>
         <div class="c-event__details">
           <p class="c-event__date">
