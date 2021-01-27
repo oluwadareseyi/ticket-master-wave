@@ -38,6 +38,7 @@
 
     .c-cart {
       margin-top: 50px;
+      @include fadeUp;
 
       &__event {
         color: $col-black;

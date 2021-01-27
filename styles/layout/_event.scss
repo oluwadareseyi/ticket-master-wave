@@ -9,6 +9,7 @@
   max-width: 990px;
   margin: 0 auto;
   margin-top: 50px;
+  @include fadeUp;
 
   &__details {
     display: grid;
