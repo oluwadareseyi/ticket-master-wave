@@ -1,0 +1,43 @@
+.c-spinner {
+  @include flex($justify: center);
+}
+
+.c-bouncer {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  width: 100px;
+  height: 100px;
+  div {
+    width: 10px;
+    height: 10px;
+    background: $col-yellow;
+    border-radius: 50%;
+    animation: bouncer 0.5s cubic-bezier(0.19, 0.57, 0.3, 0.98) infinite
+      alternate;
+
+    &:nth-child(2) {
+      animation-delay: 0.1s;
+      opacity: 0.8;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 0.2s;
+      opacity: 0.7;
+    }
+
+    &:nth-child(4) {
+      animation-delay: 0.3s;
+      opacity: 0.6;
+    }
+  }
+}
+
+@keyframes bouncer {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100px);
+  }
+}

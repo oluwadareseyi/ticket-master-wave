@@ -50,6 +50,18 @@
         font-size: 15px;
       }
 
+      &__free {
+        font-size: 14px;
+        color: $col-green;
+        font-weight: 500;
+      }
+
+      &__sold-out {
+        font-size: 14px;
+        color: $col-red;
+        font-weight: 500;
+      }
+
       &__date {
         font-size: 12px;
         font-weight: 500;
