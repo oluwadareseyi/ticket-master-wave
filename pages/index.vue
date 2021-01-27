@@ -12,7 +12,8 @@
       >
         <div class="c-event__image">
           <img
-            src="https://res.cloudinary.com/dmwfd0zhh/image/upload/v1611606590/flutterwave/Event_image_ifefam.png"
+            v-if="event.image"
+            :src="event.image"
             alt="The Nathan Cole Experience"
           />
         </div>
