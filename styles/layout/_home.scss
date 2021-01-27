@@ -19,13 +19,7 @@
     .c-event {
       display: inline-block;
       cursor: pointer;
-      animation: fadeUp 0.5s;
-
-      @keyframes fadeUp {
-        from {
-          transform: translate3d(0, 30px, 0);
-        }
-      }
+      @include fadeUp;
       &__image {
         margin-bottom: 10px;
         height: 220px;
