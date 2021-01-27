@@ -10,9 +10,19 @@
       </span>
     </button>
     <hr />
-    <form @submit.prevent class="c-payment__form">
+    <form
+      @submit.prevent="$emit('makePayment', customerInfo)"
+      class="c-payment__form"
+    >
       <label class="c-form__label" for="name">Full name</label>
-      <input type="text" name="name" id="name" class="c-form__input" required />
+      <input
+        type="text"
+        name="name"
+        id="name"
+        class="c-form__input"
+        v-model="name"
+        required
+      />
 
       <label class="c-form__label" for="email">Email address</label>
       <input
@@ -21,6 +31,7 @@
         id="email"
         class="c-form__input"
         required
+        v-model="email"
       />
 
       <label class="c-form__label" for="phone">Phone number</label>
@@ -30,6 +41,7 @@
         id="phone"
         class="c-form__input"
         required
+        v-model="phone"
       />
       <div class="c-total">
         <div class="c-total__type">
@@ -69,7 +81,23 @@
 
 <script>
 export default {
-  props: ["total"]
+  props: ["total"],
+  data() {
+    return {
+      name: "",
+      email: "",
+      phone: ""
+    };
+  },
+  computed: {
+    customerInfo() {
+      return {
+        name: this.name,
+        email: this.email,
+        phone: this.phone
+      };
+    }
+  }
 };
 </script>
 
