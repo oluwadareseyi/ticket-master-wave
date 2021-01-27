@@ -6,7 +6,10 @@
       viewBox="0 0 173 34"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      aria-labelledby="logotitle"
+      role="presentation"
     >
+      <title id="logotitle">Flutterwave Logo</title>
       <path
         fill-rule="evenodd"
         clip-rule="evenodd"
